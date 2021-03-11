@@ -5,5 +5,6 @@
 
 # READ PACKAGE
 
-- bebef021ad89e2fef46aa2af74245160482aae1e
-- echo $PAT | docker login ghcr.io --username phanatic --password-stdin
+- https://github.com/features/packages
+- docker login docker.pkg.github.com --username santoshmondal --password <PERSONAL_ACCESS_TOKEN>
+- https://github.community/t/error-response-from-daemon-unauthorized-when-im-trying-to-pull-public-image-from-gpr/2614/6
