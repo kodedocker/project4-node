@@ -1,6 +1,6 @@
 # Project 3
 
-- This project pushes the Docker Image to Docker Hub under santoshmondal
+- This project pushes the Docker Image to Docker Hub under Organisation `devroom01`
 
 # Build Image
 

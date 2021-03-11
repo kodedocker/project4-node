@@ -10,8 +10,9 @@ on:
 env:
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  IMAGE: project3
-  TAG: 4
+  DOCKER_ORG: devroom01
+  IMAGE: project4
+  TAG: 1
 
 jobs:
   build:
@@ -28,5 +29,5 @@ jobs:
 
       - name: Docker Push to Docker Hub
         run: |
-          docker tag $IMAGE:$TAG $DOCKER_USER/$IMAGE:$TAG
-          docker push $DOCKER_USER/$IMAGE:$TAG
+          docker tag $IMAGE:$TAG $DOCKER_ORG/$IMAGE:$TAG
+          docker push $DOCKER_ORG/$IMAGE:$TAG
