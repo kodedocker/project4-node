@@ -11,7 +11,7 @@ env:
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   IMAGE: project3
-  TAG: 3
+  TAG: 4
 
 jobs:
   build:
