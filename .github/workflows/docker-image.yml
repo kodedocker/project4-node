@@ -1,51 +1,32 @@
-
-
-
-
-
-
-
-
-
-
-
-
 name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
-  
+    branches: [main]
+
   pull_request:
-    branches: [ main ]
-    
+    branches: [main]
 
-env: 
-  IMAGE_NAME: project3:$(date +%s)
-    
-    
+env:
+  IMAGE_NAME: project3
+  IMAGE_VERSION: 3
+  DOCKER_USER: ${{ secrets.DOCKER_USER }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Docker Login
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - uses: actions/checkout@v2
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      - name: Docker Login
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: Docker Push to Docker Hub
-      run: |
-        docker push $IMAGE_NAME
-    
-    
-    
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME:$IMAGE_VERSION
+
+      - name: Docker Push to Docker Hub
+        run: |
+          docker push $IMAGE_NAME:$IMAGE_VERSION
