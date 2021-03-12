@@ -12,7 +12,7 @@ env:
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   DOCKER_ORG: devroom01
   IMAGE: project5
-  TAG: 3.0.1
+  TAG: 3.0.2
 
 jobs:
   build:
